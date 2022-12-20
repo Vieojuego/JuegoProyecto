@@ -1,15 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UiController : MonoBehaviour
 {
     public static UiController Instance;
+    
+    //MENU DE PAUSA Y MENU DE INVENTARIO
     public GameObject menuPause;
     public GameObject inventory;
 
+    //TEXTO DE CANTIDAD DE TINERO
+    public TextMeshProUGUI cantidad;
+    
+    //GESTIONAR CORAZONES
     public Sprite secuencyOne;
     public Sprite secuencyTwo;
     public Sprite secuencyThree;
@@ -67,6 +74,9 @@ public class UiController : MonoBehaviour
         {
             CerrarInventory();
         }
+        
+        //CONTROLAMOS LA CANTIDAD DE ORO QUE TENEMOS
+        countGold();
     }
 
     //Reanudar el juego
@@ -76,16 +86,24 @@ public class UiController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    //ABRIR INVENTARIO
     public void AbrirInventory()
     {
         Time.timeScale = 0f;
         inventory.SetActive(true);
     }
 
+    //CERRAR INVENTARIO
     public void CerrarInventory()
     {
         inventory.SetActive(false);
         Time.timeScale = 1f;
+    }
+    
+    //SUMAR DINERO
+    public void countGold()
+    {
+        cantidad.SetText(LevelController.Instance.gemsCollected+"");
     }
 
     
