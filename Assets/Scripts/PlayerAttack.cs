@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     private bool _isAttack;
+    public int dmg;
 
     
     private void Start()
@@ -31,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
         // Si estamos atacando y estamos colisionando con un enemigo
         if (other.gameObject.CompareTag("Enemy") && _isAttack)
         {
-            Destroy(other.gameObject); // Lo destruimos
+            EnemyHurt.Instance.hurtEnemy(dmg);
             
         }
     }
