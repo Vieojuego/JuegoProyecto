@@ -1,18 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupControler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool isGold;
 
-    // Update is called once per frame
-    void Update()
+    private bool _isCollected;
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (isGold && !_isCollected)
+            {
+                LevelController.Instance.gemsCollected++;
+                _isCollected = true;
+                Destroy(gameObject);
+            }
+        }
     }
 }
