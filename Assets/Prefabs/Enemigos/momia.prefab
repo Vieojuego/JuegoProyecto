@@ -150,14 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50bf00a5c90a9544b1f3d56792834ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 8827350469117419834, guid: af4415c5e86ed004da5429558641e420, type: 3}
   damage: 1
   velocity: 2
   maxRight: {fileID: 5496055547493200350}
   maxLeft: {fileID: 5496055548561805163}
   distancePlayer: 0
   followPlayer: 0
-  animator: {fileID: 0}
+  animator: {fileID: 5496055546865997806}
 --- !u!50 &5496055548546165530
 Rigidbody2D:
   serializedVersion: 4

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemyControler : MonoBehaviour
 {
-    public Transform target;
-    public static EnemyControler Instance;
+    private Transform _target;
+
 
 
     [Header("Atributes")] public int damage;
@@ -19,14 +19,11 @@ public class EnemyControler : MonoBehaviour
     public bool followPlayer;
 
     [Header("Animacion")] public Animator animator;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
+    
 
     void Start()
     {
+        _target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
         maxLeft.parent = null;
         maxRight.parent = null;
@@ -38,7 +35,7 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        distancePlayer = target.transform.position.x - transform.position.x;
+        distancePlayer = _target.transform.position.x - transform.position.x;
         followPlayer = distancePlayer is >= -5 and <= 5;
         if (!followPlayer)
         {
@@ -56,7 +53,7 @@ public class EnemyControler : MonoBehaviour
             }
 
             transform.position = Vector2.MoveTowards(transform.position,
-                new Vector2(target.position.x, transform.position.y), velocity * Time.deltaTime);
+                new Vector2(_target.position.x, transform.position.y), velocity * Time.deltaTime);
         }
     }
 

@@ -9,17 +9,13 @@ public class EnemyHurt : MonoBehaviour
 {
     
     
-    public static EnemyHurt Instance;
     public int healt;
     public GameObject[] myObjects;
     public float[] Drops;
     private Dictionary<GameObject,float> _collectibles;
 
     private float _cooldownDmg;
-    private void Awake()
-    {
-        Instance = this;
-    }
+   
 
     private void Start()
     {

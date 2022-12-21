@@ -23,8 +23,8 @@ public class CamaraControler : MonoBehaviour
         float ammountToMove = transform.position.x - _lastPos;
 
         baground.position += new Vector3(ammountToMove,0f,0f);
-        middleBackground.position += new Vector3(ammountToMove * 0.5f,0f,0f);
-        othermiddleBackground.position += new Vector3(ammountToMove * 0.5f,0f,0f);
+        middleBackground.position += new Vector3(ammountToMove * 0.1f,0f,0f);
+        othermiddleBackground.position += new Vector3(ammountToMove * 0.1f,0f,0f);
         
         _lastPos = transform.position.x;
     }

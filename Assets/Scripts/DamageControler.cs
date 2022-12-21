@@ -6,22 +6,14 @@ using UnityEngine;
 public class DamageControler : MonoBehaviour
 {
     private bool _isAttack;
-
-    public static DamageControler Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-
+    
     private void OnTriggerStay2D(Collider2D other)
     {
-        Animator animator = EnemyControler.Instance.animator;
 
         // Si chocamos con la zona de ataque de un Enemigo
         if (other.gameObject.CompareTag($"EnemyHurt"))
         {
+            Animator animator = other.GetComponentInParent<EnemyControler>().animator;
             if( animator.GetCurrentAnimatorStateInfo(0).IsName("Momia_Attack")) // Comprobamos si está haciendo la animación de atacar
             {
                 _isAttack = true;
@@ -34,7 +26,7 @@ public class DamageControler : MonoBehaviour
 
             if (_isAttack)
             {
-                int dmg = EnemyControler.Instance.damage;
+                int dmg = other.GetComponentInParent<EnemyControler>().damage;
                 HealthController.Instance.Hurt(dmg);
             }
         }

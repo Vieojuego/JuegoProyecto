@@ -8,10 +8,7 @@ public class PlayerAttack : MonoBehaviour
     private bool _isAttack;
     public int dmg;
 
-    
-    private void Start()
-    {
-    }
+ 
 
     private void Update()
     {
@@ -32,7 +29,8 @@ public class PlayerAttack : MonoBehaviour
         // Si estamos atacando y estamos colisionando con un enemigo
         if (other.gameObject.CompareTag("Enemy") && _isAttack)
         {
-            EnemyHurt.Instance.hurtEnemy(dmg);
+            other.GetComponent<EnemyHurt>().hurtEnemy(dmg);
+            
             
         }
     }
