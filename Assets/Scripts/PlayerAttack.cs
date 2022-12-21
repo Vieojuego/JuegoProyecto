@@ -8,7 +8,8 @@ public class PlayerAttack : MonoBehaviour
     private bool _isAttack;
     public int dmg;
 
- 
+
+  
 
     private void Update()
     {

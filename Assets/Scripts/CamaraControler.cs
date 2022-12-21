@@ -19,13 +19,16 @@ public class CamaraControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z);
-        float ammountToMove = transform.position.x - _lastPos;
+        if (target != null)
+        {
+            transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z);
+            float ammountToMove = transform.position.x - _lastPos;
 
-        baground.position += new Vector3(ammountToMove,0f,0f);
-        middleBackground.position += new Vector3(ammountToMove * 0.1f,0f,0f);
-        othermiddleBackground.position += new Vector3(ammountToMove * 0.1f,0f,0f);
-        
-        _lastPos = transform.position.x;
+            baground.position += new Vector3(ammountToMove, 0f, 0f);
+            middleBackground.position += new Vector3(ammountToMove * 0.1f, 0f, 0f);
+            othermiddleBackground.position += new Vector3(ammountToMove * 0.1f, 0f, 0f);
+
+            _lastPos = transform.position.x;
+        }
     }
 }

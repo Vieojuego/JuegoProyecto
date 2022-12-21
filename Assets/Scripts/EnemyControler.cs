@@ -35,26 +35,31 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        distancePlayer = _target.transform.position.x - transform.position.x;
-        followPlayer = distancePlayer is >= -5 and <= 5;
-        if (!followPlayer)
+
+        if (_target != null)
         {
-            Movimiento();
-        }
-        else
-        {
-            if (distancePlayer > 0)
+            distancePlayer = _target.transform.position.x - transform.position.x;
+            followPlayer = distancePlayer is >= -5 and <= 5;
+            if (!followPlayer)
             {
-                transform.localScale = new Vector3(-_turnX, _turnY, 1f);
+                Movimiento();
             }
             else
             {
-                transform.localScale = new Vector3(_turnX, _turnY, 1f);
-            }
+                if (distancePlayer > 0)
+                {
+                    transform.localScale = new Vector3(-_turnX, _turnY, 1f);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(_turnX, _turnY, 1f);
+                }
 
-            transform.position = Vector2.MoveTowards(transform.position,
-                new Vector2(_target.position.x, transform.position.y), velocity * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position,
+                    new Vector2(_target.position.x, transform.position.y), velocity * Time.deltaTime);
+            }    
         }
+        
     }
 
     public void Movimiento()
