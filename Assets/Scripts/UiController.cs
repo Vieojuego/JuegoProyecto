@@ -69,7 +69,7 @@ public class UiController : MonoBehaviour
 
     private void Update()
     {
-        //Controlar si se pulsa Espace, para abrir opciones
+        //Controlar si se pulsa Espace, para abrir opciones y si se vuelve a pulsar se cierra el menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if( menuPause.activeSelf){
@@ -87,13 +87,26 @@ public class UiController : MonoBehaviour
            
         }
 
+        //Si está activo el inventario en pantalla se cierra y en caso contrario se abre al pulsar la tecla I
+
         if (Input.GetKeyDown(KeyCode.I))
         {
-            AbrirInventory();
-        }else if (Input.GetKeyUp(KeyCode.I))
-        {
-            CerrarInventory();
+            if( inventary.activeSelf){
+            
+                CerrarInventory();
+
+
+        
+
+            }else{
+
+                AbrirInventory();
+
+            }
+
+
         }
+        
         
         //CONTROLAMOS LA CANTIDAD DE ORO QUE TENEMOS
         countGold();
@@ -112,13 +125,13 @@ public class UiController : MonoBehaviour
     public void AbrirInventory()
     {
         Time.timeScale = 0f;
-        inventory.SetActive(true);
+        inventary.SetActive(true);
     }
 
     //CERRAR INVENTARIO
     public void CerrarInventory()
     {
-        inventory.SetActive(false);
+        inventary.SetActive(false);
         Time.timeScale = 1f;
     }
     
