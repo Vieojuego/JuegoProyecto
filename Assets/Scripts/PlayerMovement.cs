@@ -53,10 +53,11 @@ public class PlayerMovement : MonoBehaviour
 
         
         // Controlar El space, para Saltar
-        if(Input.GetKeyDown(KeyCode.Space) && _grounded)
+        if((Input.GetKeyDown(KeyCode.Space) ||Input.GetKey(KeyCode.UpArrow) )&& _grounded)
         {
             Jump();
         }
+     
         
         // Atacar si hacemos Click y no estamos saltando
         
