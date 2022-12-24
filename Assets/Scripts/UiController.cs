@@ -13,6 +13,11 @@ public class UiController : MonoBehaviour
     public GameObject menuPause;
     public GameObject inventory;
 
+
+    //Inventario
+    public GameObject inventary;
+
+
     //TEXTO DE CANTIDAD DE TINERO
     public TextMeshProUGUI cantidad;
     
@@ -35,8 +40,12 @@ public class UiController : MonoBehaviour
     }
 
     void Start()
+
     {
+        inventary =  GameObject.Find("/Canvas/Inventary");
         menuPause.SetActive(false);
+        inventary.SetActive(false);
+
         _secuencys = new Dictionary<int, Sprite>();
         
         _secuencys.Add(0,secuencyOne);
@@ -63,8 +72,19 @@ public class UiController : MonoBehaviour
         //Controlar si se pulsa Espace, para abrir opciones
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            menuPause.SetActive(true);
-            Time.timeScale = 0f;
+            if( menuPause.activeSelf){
+                menuPause.SetActive(false);
+                inventary.SetActive(false);
+
+                Time.timeScale = 1f;
+
+            }else{
+                menuPause.SetActive(true);
+                Time.timeScale = 0f;
+            }
+           
+
+           
         }
 
         if (Input.GetKeyDown(KeyCode.I))
@@ -82,6 +102,8 @@ public class UiController : MonoBehaviour
     //Reanudar el juego
     public void Reanudar()
     {
+
+        inventary.SetActive(false);
         menuPause.SetActive(false);
         Time.timeScale = 1f;
     }
