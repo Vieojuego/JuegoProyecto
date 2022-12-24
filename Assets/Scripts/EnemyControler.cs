@@ -36,7 +36,7 @@ public class EnemyControler : MonoBehaviour
     private void Update()
     {
 
-        if (_target != null)
+        if (_target != null) //COMPROBAR SI EL TARGET EXISTE.
         {
             distancePlayer = _target.transform.position.x - transform.position.x;
             followPlayer = distancePlayer is >= -5 and <= 5;

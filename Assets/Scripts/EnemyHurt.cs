@@ -21,7 +21,7 @@ public class EnemyHurt : MonoBehaviour
     {
         _collectibles = new Dictionary<GameObject, float>();
         
-        for (int i = 0; i < myObjects.Length; i++)
+        for (int i = 0; i < myObjects.Length; i++) //GENERAR EL ARRAY DE COLECCIONABLES
         {
             _collectibles.Add(myObjects[i],Drops[i]);
         }
@@ -33,28 +33,25 @@ public class EnemyHurt : MonoBehaviour
         _cooldownDmg -= Time.deltaTime;
     }
 
-    public void hurtEnemy(int dmg)
+    public void hurtEnemy(int dmg) //HACER DAÑO AL ENEMIGO
     {
-        if (_cooldownDmg <= 0)
+        if (_cooldownDmg <= 0)  //COMPROBAR SI SE LE PUEDE HACER DAÑO
         {
             _cooldownDmg = 0.3f;
             healt -= dmg;
-            if (healt <= 0)
+            if (healt <= 0) //SI EL ENEMIGO ESTÁ EN 0 o MENOS
             {
-                float dropSelect = Random.Range(0,100f);
+                float dropSelect = Random.Range(0,100f); //SE GENERA UN NUMERO ALEATORIO ENTRE 0 Y 100
 
 
-                foreach(var item in _collectibles)
+                foreach(var item in _collectibles)  //RECORREMOS EL DICCIONARIO DE COLECCIONABLES
                 {
-                    if (dropSelect <= item.Value)
+                    if (dropSelect <= item.Value) 
                     {
-                        Instantiate(item.Key, gameObject.transform.position,gameObject.transform.rotation);
+                        Instantiate(item.Key, gameObject.transform.position,gameObject.transform.rotation); //SI COINCIDE EL NUMERO GENERADO CON LA PROB, LO DROPEARÁ
                     }
                 }
-                
-                
-                Destroy(gameObject);
-                
+                Destroy(gameObject); //DESTRUIR AL ENEMIGO
             }
         }
     }

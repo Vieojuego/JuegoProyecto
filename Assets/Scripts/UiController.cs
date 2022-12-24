@@ -57,10 +57,8 @@ public class UiController : MonoBehaviour
         _secuencys.Add(6,secuencySeven);
         
     }
-
     
-    
-
+    //Controlar los corazones
     public void UpdateHeal()
     {
         int health = HealthController.Instance.health;
@@ -94,19 +92,12 @@ public class UiController : MonoBehaviour
             if( inventary.activeSelf){
             
                 CerrarInventory();
-
-
-        
-
             }else{
-
                 AbrirInventory();
-
             }
 
 
         }
-        
         
         //CONTROLAMOS LA CANTIDAD DE ORO QUE TENEMOS
         countGold();
