@@ -24,7 +24,7 @@ public class HealthController : MonoBehaviour
         _sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (_invincibleCounter > 0)
