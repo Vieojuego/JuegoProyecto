@@ -13,15 +13,5 @@ public class LevelController : MonoBehaviour
     {
         Instance = this;
     }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       Debug.Log(gemsCollected);
-    }
+    
 }

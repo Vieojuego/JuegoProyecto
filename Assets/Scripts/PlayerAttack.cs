@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public static  PlayerAttack Instance;
     private bool _isAttack;
     public int dmg;
 
 
-  
+    private void Awake()
+    {
+        Instance = this;
+    }
+
 
     private void Update()
     {
