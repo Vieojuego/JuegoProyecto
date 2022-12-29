@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Animation")] 
     public new Animator animation;
 
+    [Header("Animation")] public float KnocBackLenght, knockBackForce;
+    private float _knockBackCounter;
+
     private void Awake()
     {
         Instance = this;
@@ -44,26 +47,32 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-        
-        // Controlar si vamos derecha o izquierda
-        _horizontal = Input.GetAxisRaw("Horizontal");
-        animation.SetFloat("Horizontal", Mathf.Abs(_horizontal));
-        if (_horizontal < 0.0f) transform.localScale = new Vector3(-_rotateX,_rotateY,1);
-        else if (_horizontal > 0.0f) transform.localScale = new Vector3(_rotateX, _rotateY, 1);
+        if (_knockBackCounter <= 0)
+        {
+            // Controlar si vamos derecha o izquierda
+            _horizontal = Input.GetAxisRaw("Horizontal");
+            animation.SetFloat("Horizontal", Mathf.Abs(_horizontal));
+            if (_horizontal < 0.0f) transform.localScale = new Vector3(-_rotateX, _rotateY, 1);
+            else if (_horizontal > 0.0f) transform.localScale = new Vector3(_rotateX, _rotateY, 1);
 
-        
-        // Controlar El space, para Saltar
-        if((Input.GetKeyDown(KeyCode.Space) ||Input.GetKey(KeyCode.UpArrow) )&& _grounded)
-        {
-            Jump();
+
+            // Controlar El space, para Saltar
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow)) && _grounded)
+            {
+                Jump();
+            }
+
+
+            // Atacar si hacemos Click y no estamos saltando
+
+            if (Input.GetMouseButtonDown(0) && _grounded == true)
+            {
+                AttackPlayer();
+            }
         }
-     
-        
-        // Atacar si hacemos Click y no estamos saltando
-        
-        if (Input.GetMouseButtonDown(0) && _grounded==true)
+        else
         {
-            AttackPlayer();
+            _knockBackCounter -= Time.deltaTime;
         }
 
     }
@@ -100,5 +109,10 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    
+    public void NockBack()
+    {
+        _rgb.velocity = new Vector2(knockBackForce, knockBackForce);
+    }
+
+
 }
