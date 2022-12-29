@@ -15,10 +15,13 @@ public class EnemyHurt : MonoBehaviour
     private Dictionary<GameObject,float> _collectibles;
 
     private float _cooldownDmg;
+
+    private SpriteRenderer _sr;
    
 
     private void Start()
     {
+        _sr = GetComponent<SpriteRenderer>();
         _collectibles = new Dictionary<GameObject, float>();
         
         for (int i = 0; i < myObjects.Length; i++) //GENERAR EL ARRAY DE COLECCIONABLES
@@ -31,6 +34,11 @@ public class EnemyHurt : MonoBehaviour
     private void Update()
     {
         _cooldownDmg -= Time.deltaTime;
+
+        if (_cooldownDmg <= 0)
+        {
+            _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 1f);
+        }
     }
 
     public void hurtEnemy(int dmg) //HACER DAÑO AL ENEMIGO
@@ -53,6 +61,10 @@ public class EnemyHurt : MonoBehaviour
                 }
                 Destroy(gameObject); //DESTRUIR AL ENEMIGO
             }
+        }
+        else
+        {
+            _sr.color = new Color(_sr.color.r, _sr.color.g, _sr.color.b, 0.5f);
         }
     }
 }
