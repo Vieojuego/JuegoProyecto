@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-
     public Item item;
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,6 +16,4 @@ public class ItemPickup : MonoBehaviour
             
         }
     }
-   
-   
 }

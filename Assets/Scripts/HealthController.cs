@@ -45,6 +45,7 @@ public class HealthController : MonoBehaviour
         {
             health -= dmg;
             UiController.Instance.UpdateHeal();
+            PlayerMovement.Instance.NockBack();
             if (health <= 0)
             {
                 Destroy(gameObject);

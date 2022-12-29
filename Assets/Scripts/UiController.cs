@@ -61,7 +61,7 @@ public class UiController : MonoBehaviour
     //Controlar los corazones
     public void UpdateHeal()
     {
-        int health = HealthController.Instance.health;
+        int health = HealthController.Instance.health >= 0?HealthController.Instance.health:0;
         lifeUi.sprite= _secuencys[health];
     }
 

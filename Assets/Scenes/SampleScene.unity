@@ -8969,6 +8969,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 952611135695904837, guid: 478d8cb2241b6734ba01e4c7559ddde6, type: 3}
+      propertyPath: attackVelocity
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 952611135808513190, guid: 478d8cb2241b6734ba01e4c7559ddde6, type: 3}
       propertyPath: m_Name
       value: momia
@@ -9113,7 +9117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8827350469117419834, guid: af4415c5e86ed004da5429558641e420, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5093
+      value: -4.62
       objectReference: {fileID: 0}
     - target: {fileID: 8827350469117419834, guid: af4415c5e86ed004da5429558641e420, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9150,6 +9154,14 @@ PrefabInstance:
     - target: {fileID: 8827350469117419834, guid: af4415c5e86ed004da5429558641e420, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827350469117419835, guid: af4415c5e86ed004da5429558641e420, type: 3}
+      propertyPath: KnocBackLenght
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827350469117419835, guid: af4415c5e86ed004da5429558641e420, type: 3}
+      propertyPath: knockBackForce
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af4415c5e86ed004da5429558641e420, type: 3}
