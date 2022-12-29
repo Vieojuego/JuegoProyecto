@@ -11,10 +11,8 @@ public class ItemPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
-                InventoryManager.Instance.Add(item);
-                Destroy(gameObject);
-            
+            InventoryManager.Instance.Add(item);
+            Destroy(gameObject);
         }
     }
 }

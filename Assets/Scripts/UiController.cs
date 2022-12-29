@@ -11,13 +11,10 @@ public class UiController : MonoBehaviour
     
     //MENU DE PAUSA Y MENU DE INVENTARIO
     public GameObject menuPause;
-    public GameObject inventory;
-
-
+    
     //Inventario
     public GameObject inventary;
-
-
+    
     //TEXTO DE CANTIDAD DE TINERO
     public TextMeshProUGUI cantidad;
     
@@ -80,9 +77,6 @@ public class UiController : MonoBehaviour
                 menuPause.SetActive(true);
                 Time.timeScale = 0f;
             }
-           
-
-           
         }
 
         //Si está activo el inventario en pantalla se cierra y en caso contrario se abre al pulsar la tecla I
@@ -117,6 +111,7 @@ public class UiController : MonoBehaviour
     {
         Time.timeScale = 0f;
         inventary.SetActive(true);
+        InventoryManager.Instance.ListItems();
     }
 
     //CERRAR INVENTARIO
