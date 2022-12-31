@@ -90,4 +90,6 @@ public class InventoryManager : MonoBehaviour
             InventoryItems[i].AddItem(Items[i]);
         }
     }
+
+  
 } 

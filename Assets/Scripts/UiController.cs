@@ -81,7 +81,7 @@ public class UiController : MonoBehaviour
 
         //Si está activo el inventario en pantalla se cierra y en caso contrario se abre al pulsar la tecla I
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I)  )
         {
             if( inventary.activeSelf){
             
